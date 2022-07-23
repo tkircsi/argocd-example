@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+bases:
+  - ../../base
+
+resources:
+  - ns.yaml
+
+namespace: prod-ns
+namePrefix: prod-
+
+commonLabels:
+  env: prod
+
+patches:
+  - replica-count.yaml
